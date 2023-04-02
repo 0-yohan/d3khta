@@ -1,18 +1,22 @@
 {% extends 'navbar.html' %}
 
 {% block content %}
-<h2>Latest Posts</h2>
+<main class="bg-neutral-300 px-5 md:px-10 h-[85vh]">
+    <h1 class="pl-1 py-6">RECENT POSTS</h1>
+    <div class="grid grid-flow-row space-y-4  md:grid-flow-col md:space-x-5 "></div>
+        {% for p in allposts %}
+        <div class="bg-white rounded-lg shadow-xl mt-4 p-2  cursor-pointer hover:bg-rose-100 ">
+            {% for q in poet %}
+                {% if p.poet_id_id is q.id %} 
+                    <h1 class="font-bold">{{p.title|upper}}</h1>
+                    <h2 class="italic">{{q.first_name}} {{q.last_name}}</h2>
+                {% endif %}
+            {% endfor %}
+                {{p.data|linebreaks|truncatechars:48}}
+            </div>
 
-{% for p in allposts %}
-    
-    {% for q in poet %}
-        {% if p.poet_id_id is q.id %} 
-            <p><b>{{q.first_name}} {{q.last_name}}</b></p>
-        {% endif %}
-    {% endfor %}
 
-    <p>{{p.data|linebreaks}}</p>
-
-{% endfor %}
-
+        {% endfor %}
+    </div>
+</main>
 {% endblock %}

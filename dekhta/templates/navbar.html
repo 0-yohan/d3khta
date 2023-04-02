@@ -6,25 +6,30 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Dekhta</title>
     
 </head>
 
 <body>
     {%load static%}
     <section class="header">
-        <nav>
-            <a href="{% url 'home' %}"><img alt="Nav bar"></a>
-            <div class="navlinks">
-                <ul>
-                    <div>
-                        <li><a href="{% url 'home' %}">Home</a></li>
-                        <li><a href="">About us</a></li>
-                        <li><a href="">blah!</a></li>
-                        <li><a href="">blah blah!</a></li>
-                    
-                        
-                        </div>
+        <nav class=" bg-rose-950 sm:flex md:flex-row justify-between p-5 text-white">
+            <div class="flex items-center  md:container">
+                <div class="flex items-center w-auto static"><img class="h-10" src="shaf\assets\css\feather-pen.jpg" alt="">
+                    <p class="font-bold rounded-md text-black w-16 px-1 bg-neutral-300 hover:bg-black hover:text-rose-400  cursor-pointer">Dekhta </p>
+                </div>
+                <form class="" action="index.html" method="post">
+                    <input class="w-[50vw] rounded-xl bg-rose-900 pl-5 ml-[10vw] " type="text" placeholder="search">
+                </form>
+            </div>
+            <div class="flex">
+                <ul class=" flex space-x-8  px-[7vw] ">
+                    <li class="hover:bg-rose-900 rounded-md  p-1 cursor-pointer ">Home</li>
+                    <li class="hover:bg-rose-900 rounded-md  p-1 cursor-pointer ">Poets</li>
+                    <li class="hover:bg-rose-900 rounded-md  p-1  cursor-pointer">Read</li>
+                    <li class="hover:bg-rose-900 rounded-md  p-1 cursor-pointer ">Login</li>
+                    <li class="hover:bg-rose-900 rounded-md  p-1 cursor-pointer ">Contact</li>
                 </ul>
             </div>
         </nav>

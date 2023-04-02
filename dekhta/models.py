@@ -10,6 +10,7 @@ class Poets(models.Model):
 
 class Post(models.Model):
     # user = models.CharField(Poets)
+    title = models.CharField(max_length = 40, null = True)
     d_time = models.DateTimeField(default=datetime.now())
     data = models.TextField()
     poet_id = models.ForeignKey('Poets', on_delete=models.CASCADE, default=-1)
