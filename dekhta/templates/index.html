@@ -1,1 +1,18 @@
 {% extends 'navbar.html' %}
+
+{% block content %}
+<h2>Latest Posts</h2>
+
+{% for p in allposts %}
+    
+    {% for q in poet %}
+        {% if p.poet_id_id is q.id %} 
+            <p><b>{{q.first_name}} {{q.last_name}}</b></p>
+        {% endif %}
+    {% endfor %}
+
+    <p>{{p.data|linebreaks}}</p>
+
+{% endfor %}
+
+{% endblock %}
