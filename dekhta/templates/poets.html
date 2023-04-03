@@ -1,0 +1,18 @@
+{% extends 'navbar.html' %}
+<!-- list of all poets -->
+{% block content %}
+<main class="bg-neutral-300 px-5 md:px-10 h-[85vh]">
+    <h1 class="pl-1 py-6">POETS</h1>
+    <div>
+        <ul>
+        {% for p in poet %}
+            <li><a href="/poets/{{p.id}}">{{p.first_name}} {{p.last_name}}</a></li>
+
+        {% endfor %}
+        </ul>
+    </div>
+</main>
+
+
+
+{% endblock content %}
