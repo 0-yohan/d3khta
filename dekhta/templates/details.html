@@ -2,9 +2,9 @@
 
 {% load static %}
 {% block content %}
+<main class="bg-neutral-300 px-5 md:px-10 h-[85vh]">
 
-
-    <h2 class="pl-1 py-6">{{poet.first_name}} {{poet.last_name}}</h2>
+    <h1 class="pl-1 py-6">{{poet.first_name}} {{poet.last_name}}</h1>
     <p><b>Posts: </b> {{poet.posts_count}}</p>
 
     {% for p in posts reversed %}
@@ -13,5 +13,6 @@
         {% endif %}
     {% endfor %}
 
+</main>
 
 {% endblock content %}

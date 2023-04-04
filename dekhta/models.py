@@ -1,12 +1,17 @@
 from django.db import models
 from datetime import datetime
+from django.contrib.auth.models import User
 
 # Create your models here.
 
 class Poets(models.Model):
+    # user = models.OneToOneField(User, on_delete=models.CASCADE)
     first_name = models.CharField(max_length = 25)
     last_name = models.CharField(max_length = 25)
     posts_count = models.IntegerField(default = 0)
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
 
 class Post(models.Model):
     # user = models.CharField(Poets)

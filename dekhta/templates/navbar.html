@@ -11,7 +11,7 @@
     
 </head>
 
-<body>
+<body">
     {%load static%}
     <section class="header">
         <nav class=" bg-rose-950 sm:flex md:flex-row justify-between p-5 text-white">
@@ -20,15 +20,19 @@
                     <p class="font-bold rounded-md text-black w-16 px-1 bg-neutral-300 hover:bg-black hover:text-rose-400 cursor-pointer"><a href="{% url 'home' %}">Dekhta</a></p>
                 </div>
                 <form class="" action="index.html" method="post">
-                    <input class="w-[50vw] rounded-xl bg-rose-900 pl-5 ml-[10vw] " type="text" placeholder="search">
+                    <input class="w-[50vw] rounded-xl bg-rose-900 pl-5 ml-[10vw] p-1" type="text" placeholder="search">
                 </form>
             </div>
             <div class="flex">
-                <ul class=" flex space-x-8  px-[7vw] ">
+                <ul class=" flex space-x-6 ">
                     <li class="hover:bg-rose-900 rounded-md  p-1 cursor-pointer "><a href="{% url 'home' %}">Home</a></li>
                     <li class="hover:bg-rose-900 rounded-md  p-1 cursor-pointer "><a href="{% url 'poets' %}">Poets</a></li>
                     <li class="hover:bg-rose-900 rounded-md  p-1  cursor-pointer">Read</li>
-                    <li class="hover:bg-rose-900 rounded-md  p-1 cursor-pointer ">Login</li>
+                    {% if user.is_authenticated %}
+                        <li class="hover:bg-rose-900 rounded-md  p-1 cursor-pointer "><a href="{% url 'home' %}">{{user.username}}</a></li>
+                    {% else %}
+                        <li class="hover:bg-rose-900 rounded-md  p-1 cursor-pointer "><a href="{% url 'login' %}">Login</a></li>
+                    {% endif %}
                     <li class="hover:bg-rose-900 rounded-md  p-1 cursor-pointer ">Contact</li>
                 </ul>
             </div>

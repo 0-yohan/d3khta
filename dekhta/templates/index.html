@@ -2,20 +2,18 @@
 
 {% block content %}
 <main class="bg-neutral-300 px-5 md:px-10 h-[85vh]">
-    <h1 class="pl-1 py-6">RECENT POSTS</h1>
-    <div class="grid grid-flow-row space-y-4 md:grid-flow-col md:space-x-5 "></div>
-        {% for p in allposts reversed %}
-        <div class="bg-white rounded-lg shadow-xl mt-4 p-2 cursor-pointer hover:bg-rose-100 ">
+    <p class="pl-1 pt-8 pb-0 text-lg">RECENT POSTS</p>
+    <div class="grid grid-flow-row space-y-4  md:grid-flow-col md:space-x-5 ">
+        {% for p in allposts %}
+        <div class="bg-white rounded-lg shadow-xl mt-4 p-2  cursor-pointer hover:bg-rose-100 ">
             <h1 class="font-bold">{{p.title|upper}}</h1>    <!-- title -->
             {% for q in poet %}
                 {% if p.poet_id_id is q.id %} 
                     <h2 class="italic">{{q.first_name}} {{q.last_name}}</h2>    <!-- author -->
                 {% endif %}
             {% endfor %}
-            {{p.data|linebreaks|truncatechars:48}}      <!-- content -->
+            {{p.data|linebreaks|truncatewords:6}}      <!-- content -->
         </div>
-
-
         {% endfor %}
     </div>
 </main>
