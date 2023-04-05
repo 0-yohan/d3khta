@@ -6,8 +6,7 @@
     <div>
         <ul>
         {% for p in poet %}
-            <li><a href="/poets/{{p.id}}">{{p.first_name}} {{p.last_name}}</a></li>
-
+            <li><a href="/poets/{{p.first_name}}-{{p.last_name}}">{{p.first_name}} {{p.last_name}}</a></li>
         {% endfor %}
         </ul>
     </div>

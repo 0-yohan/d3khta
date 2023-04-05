@@ -15,25 +15,28 @@ def all_poets(request):
     poets = Poets.objects.all().order_by('first_name').values()
     return render(request, 'poets.html', {'poet': poets})
 
-def details(request, id):
-    poet = Poets.objects.get(id = id)
+def details(request, first_name, last_name):
+    poet = Poets.objects.get(first_name= first_name, last_name = last_name)
     all_posts = Post.objects.all().values()
-    return render(request, 'details.html', {'poet' : poet, 'posts' : all_posts})
+    context = {'poet' : poet, 'posts' : all_posts, 'show_add_post_button' : False}
+    if (request.user == poet.user):
+        context['show_add_post_button'] = True
+    return render(request, 'details.html', context)
 
 def create_user(request):
     if request.method == 'POST':
         form = NewUserForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(f"User Created")
-
-            return redirect('login/')
-
+            messages.success(request, f"User Created")
+            return redirect('login')
     else:
         form = NewUserForm()
-        
     return render(request, 'create_user.html', {'form' : form})
     
+def contact(request):
+    
+    return render(request, 'contact.html')
 
         
 

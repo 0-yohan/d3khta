@@ -1,0 +1,17 @@
+{% extends 'navbar.html' %}
+
+{% block content %}
+<main class="bg-neutral-300 px-5 md:px-10 h-[85vh] flex justify-center">
+    <div class="bg-white w-fit rounded-xl h-fit mt-[10vh] shadow-lg">
+       <form class="space-y-5 p-5 flex-col justify-center" action="login.html" method="post">
+           <input class="items-center rounded-md p-3  shadow-md " type="text" placeholder="name">
+           <br>
+           <input class="items-center rounded-md p-3 shadow-md " type="email" placeholder="email">
+           <br>
+           <textarea class="items-center rounded-md p-3 min-w-full shadow-md " placeholder="comment...." cols="30" rows="10"></textarea>
+           <button class="items-center rounded-md bg-rose-700 text-gray-100 p-2 w-full shadow-md">submit</button>
+       </form>
+    </div>
+</main>
+
+{% endblock content %}

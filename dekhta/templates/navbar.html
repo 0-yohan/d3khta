@@ -11,7 +11,7 @@
     
 </head>
 
-<body">
+<body class = 'flex flex-col min-h-screen'>
     {%load static%}
     <section class="header">
         <nav class=" bg-rose-950 sm:flex md:flex-row justify-between p-5 text-white">
@@ -29,11 +29,11 @@
                     <li class="hover:bg-rose-900 rounded-md  p-1 cursor-pointer "><a href="{% url 'poets' %}">Poets</a></li>
                     <li class="hover:bg-rose-900 rounded-md  p-1  cursor-pointer">Read</li>
                     {% if user.is_authenticated %}
-                        <li class="hover:bg-rose-900 rounded-md  p-1 cursor-pointer "><a href="{% url 'home' %}">{{user.username}}</a></li>
+                        <li class="hover:bg-rose-900 rounded-md  p-1 cursor-pointer "><a href="/poets/{{user.first_name}}-{{user.last_name}}">{{user.username}}</a></li>
                     {% else %}
                         <li class="hover:bg-rose-900 rounded-md  p-1 cursor-pointer "><a href="{% url 'login' %}">Login</a></li>
                     {% endif %}
-                    <li class="hover:bg-rose-900 rounded-md  p-1 cursor-pointer ">Contact</li>
+                    <li class="hover:bg-rose-900 rounded-md  p-1 cursor-pointer "><a href="{% url 'contact' %}">Contact</a></li>
                 </ul>
             </div>
         </nav>
@@ -52,9 +52,10 @@
     {% endblock content %}
     </div>
 
-<footer class="py-9 flex justify-center bg-neutral-200">
+<footer class="mt-auto py-7 flex flex justify-center bg-neutral-200" >
     <div class="">@qalam_e_abd</div>
 </footer>
 </body>
 
 </html>
+<!-- py-7 flex justify-center bg-neutral-200  -->
