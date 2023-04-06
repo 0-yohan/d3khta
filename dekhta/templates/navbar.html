@@ -11,29 +11,30 @@
     
 </head>
 
-<body class = 'flex flex-col min-h-screen'>
+<body class="bg-neutral-300 w-[100%] h-[100%] overflow-x-hidden m-0 p-0 min-w-[367px] max-w-[101%]">
     {%load static%}
     <section class="header">
-        <nav class=" bg-rose-950 sm:flex md:flex-row justify-between p-5 text-white">
+        <nav class=" bg-rose-950 sm:flex md:flex-row justify-between p-3  text-white">
             <div class="flex items-center  md:container">
-                <div class="flex items-center w-auto static"><img class="h-10" src="{% static 'images/feather-pen.png' %}" alt="">
-                    <p class="font-bold rounded-md text-black w-16 px-1 bg-neutral-300 hover:bg-black hover:text-rose-400 cursor-pointer"><a href="{% url 'home' %}">Dekhta</a></p>
-                </div>
-                <form class="" action="index.html" method="post">
-                    <input class="w-[50vw] rounded-xl bg-rose-900 pl-5 ml-[10vw] p-1" type="text" placeholder="search">
-                </form>
+            <div class="flex items-center static"><a href="{% url 'home' %}"><img class="h-10 w-20 m-2 rounded-md" src="{% static 'images/sukhan.png' %}" alt="Sukhan"></a>
             </div>
-            <div class="flex">
-                <ul class=" flex space-x-6 ">
-                    <li class="hover:bg-rose-900 rounded-md  p-1 cursor-pointer "><a href="{% url 'home' %}">Home</a></li>
-                    <li class="hover:bg-rose-900 rounded-md  p-1 cursor-pointer "><a href="{% url 'poets' %}">Poets</a></li>
-                    <li class="hover:bg-rose-900 rounded-md  p-1  cursor-pointer">Read</li>
+            <form class="" action="" method="post">
+
+                <input class="w-[50vw] rounded-xl bg-rose-900 px-5 py-1 ml-[5vw]  " type="text" placeholder="search">
+            </form>
+        </div>
+        <div class="flex mx-5 justify-center py-3">
+                <ul class=" flex space-x-8 ">
+                    <li class="hover:bg-rose-900 rounded-md  m-1 cursor-pointer "><a href="{% url 'home' %}">Home</a></li>
+                    <li class="hover:bg-rose-900 rounded-md  m-1 cursor-pointer "><a href="{% url 'poets' %}">Poets</a></li>
+                    <li class="hover:bg-rose-900 rounded-md  m-1  cursor-pointer">Read</li>
                     {% if user.is_authenticated %}
-                        <li class="hover:bg-rose-900 rounded-md  p-1 cursor-pointer "><a href="/poets/{{user.first_name}}-{{user.last_name}}">{{user.username}}</a></li>
+                        <li class="hover:bg-rose-900 rounded-md  m-1 cursor-pointer "><a href="{% url 'contact' %}">Contact</a></li>
+                        <li class="bg-rose-900 rounded-md  m-1 cursor-pointer "><a href="/poets/{{user.first_name}}-{{user.last_name}}">{{user.username}}</a></li>
                     {% else %}
-                        <li class="hover:bg-rose-900 rounded-md  p-1 cursor-pointer "><a href="{% url 'login' %}">Login</a></li>
+                        <li class="hover:bg-rose-900 rounded-md  m-1 cursor-pointer "><a href="{% url 'login' %}">Login</a></li>
+                        <li class="hover:bg-rose-900 rounded-md  m-1 cursor-pointer "><a href="{% url 'contact' %}">Contact</a></li>
                     {% endif %}
-                    <li class="hover:bg-rose-900 rounded-md  p-1 cursor-pointer "><a href="{% url 'contact' %}">Contact</a></li>
                 </ul>
             </div>
         </nav>
@@ -52,9 +53,8 @@
     {% endblock content %}
     </div>
 
-<footer class="mt-auto py-7 flex flex justify-center bg-neutral-200" >
-    <div class="">@qalam_e_abd</div>
-</footer>
+<footer class="bg-neutral-300" ><div>.</div> </footer>
+
 </body>
 
 </html>

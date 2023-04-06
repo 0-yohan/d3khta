@@ -1,8 +1,8 @@
 {% extends 'navbar.html' %}
 
 {% block content %}
-<main class="bg-neutral-300 px-5 md:px-10 h-[85vh] ">
-    <p class="pl-1 pt-8 pb-0 text-lg">RECENT POSTS</p>
+<main class="bg-neutral-300 px-5 md:px-10 h-max ">
+    <p class="pl-1 py-6">RECENT POSTS</p>
     <div class="grid grid-flow-row space-y-4  md:grid-flow-col md:space-x-5 ">
         {% for p in allposts %}
         <div class="bg-white rounded-lg shadow-xl mt-4 p-2  cursor-pointer hover:bg-rose-100 ">

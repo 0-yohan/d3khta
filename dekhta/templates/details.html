@@ -6,9 +6,11 @@
 
     <h1 class="pl-1 py-6">{{poet.first_name}} {{poet.last_name}}</h1>
     <p><b>Posts: </b> {{poet.posts_count}}</p>
-    {% if show_add_post_button %}
+
+    {% if show_add_post_button %} 
         <a href=""><button>Add Post</button></a> <br><br>
     {% endif %}
+
     {% for p in posts reversed %}
         {% if poet.id is p.poet_id_id %}
             {{p.data|linebreaks}}
