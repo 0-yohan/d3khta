@@ -4,6 +4,7 @@ from .models import Poets, Post
 from django.contrib import messages
 from django.contrib.auth import login, authenticate
 from .forms import NewUserForm
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def home(request):
@@ -37,6 +38,18 @@ def create_user(request):
 def contact(request):
     
     return render(request, 'contact.html')
+
+def read(request):
+    all_posts = Post.objects.all().values()
+    poets = Poets.objects.all().values()
+    return render(request, 'read.html',{'allposts':all_posts, 'poet':poets})
+
+
+@login_required
+def add_post(request):
+
+
+    return render(request, 'editor.html')
 
         
 

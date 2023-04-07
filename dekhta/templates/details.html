@@ -2,20 +2,41 @@
 
 {% load static %}
 {% block content %}
-<main class="bg-neutral-300 px-5 md:px-10 h-[85vh]">
+<main class="items-center">
+    <div class="bg-white w-fit rounded-lg p-5 m-auto mt-10  sm:mt-[7vh]">
+        <div class="items-center"> <img class="h-[30vh] rounded-md" src="IMG_20220606_171106.jpg" alt=""></div>
+        <div class="m-3">
+            <p>{{poet.first_name}} {{poet.last_name}}</p>
+            <p><b>Posts: </b> {{poet.posts_count}}</p>
+        </div>
+    </div>
+    <br>
+    
 
-    <h1 class="pl-1 py-6">{{poet.first_name}} {{poet.last_name}}</h1>
-    <p><b>Posts: </b> {{poet.posts_count}}</p>
-
-    {% if show_add_post_button %} 
-        <a href=""><button>Add Post</button></a> <br><br>
+    {% if show_add_post_button %}
+    <div class=" w-full mt-10 flex justify-around ">
+        <button class="bg-rose-900  hover:bg-white hover:text-pink-700   active:bg-rose-900 active:text-rose-500  shadow-2xl w-full p-3 rounded-2xl mx-5 text-white sm:mr-20"><a href="{% url 'add_post' %}">Upload Post</a></button>
+        <button class="bg-rose-900 hover:bg-white hover:text-pink-700  active:bg-rose-900 active:text-rose-500 shadow-2xl w-full p-3 rounded-2xl mx-5 text-white sm:ml-20"><a href="{% url 'logout' %}">Sign Out</a></button>
+    </div>
     {% endif %}
-
-    {% for p in posts reversed %}
-        {% if poet.id is p.poet_id_id %}
-            {{p.data|linebreaks}}
-        {% endif %}
-    {% endfor %}
+    <br>
+    <h1 class="ml-[4vw]">COLLECTION :</h1>
+    <div class="ml-[4vw] mr-[4vw]">
+    
+    <div class="grid grid-flow-row space-y-4  ">
+    
+        {% for p in posts reversed %}
+            {% if poet.id is p.poet_id_id %}
+                <div class="bg-white rounded-lg shadow-xl mt-3 p-2 cursor-pointer hover:bg-rose-100 ">
+                <h1 class="font-bold">{{p.title|upper}}</h1>
+                <p>{{p.data|linebreaks}}</p>
+                </div>
+            {% endif %}
+        {% endfor %}
+    
+    
+    
+    </div>
 
 </main>
 

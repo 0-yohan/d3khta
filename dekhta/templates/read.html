@@ -1,0 +1,30 @@
+{% extends  'navbar.html' %}
+
+{% block content %}
+
+<main class="bg-neutral-300 px-5 md:px-10 h-max ">
+    <div class="">
+        <h1 class="pl-1 py-6">KALAAM</h1>
+        <form class="" action="index.html" method="post">
+
+            <input class="w-full shadow-2xl rounded-xl bg-white px-5 py-2 mb-10 focus:bg-amber-50  " type="text" placeholder="search kalaam">
+        </form>
+        <div class="grid grid-flow-row space-y-4  ">
+            {% for p in allposts reversed%}
+            <div class="bg-white rounded-lg shadow-xl mt-3 p-2 cursor-pointer hover:bg-rose-100 ">
+                <h1 class="font-bold">{{p.title|upper}}</h1>
+                {% for q in poet %}
+                    {% if p.poet_id_id is q.id %} 
+                    <h2 class="italic">{{q.first_name}} {{q.last_name}}</h2>    <!-- author -->
+                    {% endif %}
+                {% endfor %}
+                <p>{{p.data|linebreaks}} </p>
+            </div>
+            {% endfor %}
+            
+        </div>
+        
+        
+
+</main>
+{% endblock content %}

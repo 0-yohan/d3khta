@@ -1,15 +1,21 @@
 {% extends 'navbar.html' %}
 <!-- list of all poets -->
 {% block content %}
-<main class="bg-neutral-300 px-5 md:px-10 h-[85vh]">
+<main class="bg-neutral-300 px-5 md:px-10 h-max ">
+<div class="">
     <h1 class="pl-1 py-6">POETS</h1>
-    <div>
-        <ul>
+    <div class=" grid grid-columns-5 space-y-4  sm:grid-flow-col sm:space-x-5 ">
         {% for p in poet %}
-            <li><a href="/poets/{{p.first_name}}-{{p.last_name}}">{{p.first_name}} {{p.last_name}}</a></li>
+        <a href="/poets/{{p.first_name}}-{{p.last_name}}">
+            <div class="bg-white rounded-lg shadow-xl mt-3 p-5 w-fit   hover:bg-rose-700 hover:font-bold hover:text-white">
+                <div class=""><img class="rounded-lg border-black max-h-52   " src="IMG_20220606_171106.jpg" alt="">
+                </div>
+                <div class="pt-1">
+                    <p class="">{{p.first_name}} {{p.last_name}}</p>
+                </div>
+            </div>
+        </a>
         {% endfor %}
-        </ul>
-    </div>
 </main>
 
 

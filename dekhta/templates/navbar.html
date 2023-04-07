@@ -27,7 +27,7 @@
                 <ul class=" flex space-x-8 ">
                     <li class="hover:bg-rose-900 rounded-md  m-1 cursor-pointer "><a href="{% url 'home' %}">Home</a></li>
                     <li class="hover:bg-rose-900 rounded-md  m-1 cursor-pointer "><a href="{% url 'poets' %}">Poets</a></li>
-                    <li class="hover:bg-rose-900 rounded-md  m-1  cursor-pointer">Read</li>
+                    <li class="hover:bg-rose-900 rounded-md  m-1  cursor-pointer"><a href="{% url 'read' %}">Read</a></li>
                     {% if user.is_authenticated %}
                         <li class="hover:bg-rose-900 rounded-md  m-1 cursor-pointer "><a href="{% url 'contact' %}">Contact</a></li>
                         <li class="bg-rose-900 rounded-md  m-1 cursor-pointer "><a href="/poets/{{user.first_name}}-{{user.last_name}}">{{user.username}}</a></li>

@@ -9,57 +9,95 @@
     <title>Document</title>
 </head>
 
-<body>
-    <nav class=" bg-rose-950 sm:flex md:flex-row justify-between p-5 text-white">
+<body class="bg-neutral-300 w-[100%] h-[100%] overflow-x-hidden m-0 p-0 min-w-[367px] max-w-[101%]">
+    <nav class=" bg-rose-950 sm:flex md:flex-row justify-between p-3  text-white">
         <div class="flex items-center  md:container">
-            <div class="flex items-center w-auto static"><img class="h-10" src="/assets/feather-pen-50f2668a.png" alt="">
-                <p class="font-bold rounded-md text-black w-16 px-1 bg-neutral-300 hover:bg-black hover:text-rose-400  cursor-pointer">Dekta </p>
+            <div class="flex items-center static"><img class="h-10 w-20 m-2 rounded-md" src="1.png" alt="Sukhan">
             </div>
             <form class="" action="index.html" method="post">
-                <input class="w-[50vw] rounded-xl bg-rose-900 pl-5 ml-[10vw] p-1" type="text" placeholder="search">
+
+                <input class="w-[50vw] rounded-xl bg-rose-900 px-5 py-1 ml-[5vw]  " type="text" placeholder="search">
             </form>
         </div>
-        <div class="flex">
-            <ul class=" flex space-x-6  px-[7vw] ">
-                <li class="hover:bg-rose-900 rounded-md  p-1 cursor-pointer "><a href="/index.html">Home</li>
-                <li class="hover:bg-rose-900 rounded-md  p-1 cursor-pointer "><a href="/index.html"></a>Poets</li>
-                <li class="hover:bg-rose-900 rounded-md  p-1  cursor-pointer"><a href="/index.html"></a>Read</li>
-                <li class="hover:bg-rose-900 rounded-md  p-1 cursor-pointer " ><a href="/login.html">Login</a></li>
-                <li class="hover:bg-rose-900 rounded-md  p-1 cursor-pointer "><a href="/contact.html">Contact</a></li>
+        <div class="flex mx-5 justify-center py-3">
+            <ul class=" flex space-x-8   ">
+                <li class="hover:bg-rose-900 rounded-md m-1 cursor-pointer">Home</li>
+                <li class="hover:bg-rose-900 rounded-md m-1 cursor-pointer">Poets</li>
+                <li class="hover:bg-rose-900 rounded-md m-1 cursor-pointer">Read</li>
+                <li class="hover:bg-rose-900 rounded-md m-1 cursor-pointer">Login</li>
+                <li class="hover:bg-rose-900 rounded-md m-1 cursor-pointer">Contact</li>
             </ul>
         </div>
     </nav>
 
-    <main class="bg-neutral-300 px-5 md:px-10 h-[85vh]">
-       <h1 class="pl-1 py-6">RECENT POSTS</h1>
-        <div class="grid grid-flow-row space-y-4  md:grid-flow-col md:space-x-5 ">
-            <div class="bg-white rounded-lg shadow-xl mt-4 p-2  cursor-pointer hover:bg-rose-100 ">
-                <h1 class="font-bold">title 1</h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-                incidunt aspernatur optio illum consequuntur exercitationem fugit aliquam molestiae
-                inventore a dolor,
-            </div>
-            <div class="bg-white rounded-lg shadow-xl p-2 cursor-pointer hover:bg-rose-100 ">
-                <h1 class="font-bold">title 2</h1>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam,
-                repudiandae. Provident vero ullam quam quis incidunt est impedit dolorum omnis doloremque libero in.
-            </div>
-            <div class="bg-white rounded-lg shadow-xl p-2 cursor-pointer hover:bg-rose-100 ">
-                <h1 class="font-bold">title 3</h1>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus,
-                quis quos corrupti quia fuga natus quam! Quasi, labore ex. Cupiditate enim vel atque dolorem velit.
-            </div>
-            <div class="bg-white rounded-lg shadow-xl p-2 cursor-pointer hover:bg-rose-100 ">
-                <h1 class="font-bold">title 4</h1>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus,
-                quis quos corrupti quia fuga natus quam! Quasi, labore ex. Cupiditate enim vel atque dolorem velit.
-            </div>
-            <div class="bg-white rounded-lg shadow-xl p-2 cursor-pointer hover:bg-rose-100 ">
-                <h1 class="font-bold">title 5</h1>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus,
-                quis quos corrupti quia fuga natus quam! Quasi, labore ex. Cupiditate enim vel atque dolorem velit.
-            </div>
-        </div>
-    </main>
+    <main class="bg-neutral-300 px-5 md:px-10 h-max ">
+        <div class="">
+            <h1 class="pl-1 py-6">RECENT POSTS</h1>
+            <div class="grid grid-flow-row space-y-4  sm:grid-flow-col sm:space-x-5 ">
+                <div class="bg-white rounded-lg shadow-xl mt-3 p-2    cursor-pointer hover:bg-rose-100 ">
+                    <h1 class="font-bold">title 1</h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
+                    incidunt aspernatur optio illum consequuntur exercitationem fugit aliquam molestiae
+                    inventore a dolor,
+                </div>
+                <div class="bg-white rounded-lg shadow-xl p-2 cursor-pointer hover:bg-rose-100 ">
+                    <h1 class="font-bold">title 2</h1>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam,
+                    repudiandae. Provident vero ullam quam quis incidunt est impedit dolorum omnis doloremque libero in.
+                </div>
+                <div class="bg-white rounded-lg shadow-xl p-2 cursor-pointer hover:bg-rose-100 ">
+                    <h1 class="font-bold">title 3</h1>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Accusamus,
+                    quis quos corrupti quia fuga natus quam! Quasi, labore ex. Cupiditate enim vel atque dolorem velit.
+                </div>
+                <div class="bg-white rounded-lg shadow-xl p-2 cursor-pointer hover:bg-rose-100 ">
+                    <h1 class="font-bold">title 4</h1>Lorem-ipsum-dolor-sit-amet-sconsectetur adipisicing elit.
+                    Accusamus,
+                    quis quos corrupti quia fuga natus quam! Quasi, labore ex. Cupiditate enim vel atque dolorem velit.
+                </div>
+                <div
+                    class="bg-neutral-300 rounded-lg shadow-xl p-2 cursor-pointer flex justify-center hover:bg-rose-700 sm:w-fit items-center ">
+                    <img class="rotate-90 h-16 sm:rotate-0 sm:h-20 sm:min-w-[25px] sm:my-[5vh] " src="2.png" alt="">
 
-    <footer class="py-9 flex justify-center bg-neutral-200">
-<div class="">@qalam_e_abd</div>
+
+                </div>
+            </div>
+            <br>
+            <div class="">
+                <h1 class="pl-1 py-6">POETS</h1>
+                <div class="grid grid-flow-row space-y-4  sm:grid-flow-col sm:space-x-5 ">
+                    <div class="bg-white rounded-lg shadow-xl mt-3 p-5 w-fit   hover:bg-rose-700 hover:font-bold hover:text-white">
+                        <div class=""><img class="rounded-lg border-black max-h-52   " src="IMG_20220606_171106.jpg" alt=""></div>
+                       <div class="pt-1"> <p class="">shafey malik</p></div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-xl mt-3 p-5 w-fit   hover:bg-rose-700 hover:font-bold hover:text-white">
+                        <div class=""><img class="rounded-lg border-black max-h-52   " src="IMG_20220606_171106.jpg" alt=""></div>
+                       <div class="pt-1"> <p class="">shafey malik</p></div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-xl mt-3 p-5 w-fit   hover:bg-rose-700 hover:font-bold hover:text-white">
+                        <div class=""><img class="rounded-lg border-black max-h-52   " src="IMG_20220606_171106.jpg" alt=""></div>
+                       <div class="pt-1"> <p class="">shafey malik</p></div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-xl mt-3 p-5 w-fit   hover:bg-rose-700 hover:font-bold hover:text-white">
+                        <div class=""><img class="rounded-lg border-black max-h-52   " src="IMG_20220606_171106.jpg" alt=""></div>
+                       <div class="pt-1"> <p class="">shafey malik</p></div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-xl mt-3 p-5 w-fit   hover:bg-rose-700 hover:font-bold hover:text-white">
+                        <div class=""><img class="rounded-lg border-black max-h-52   " src="IMG_20220606_171106.jpg" alt=""></div>
+                       <div class="pt-1"> <p class="">shafey malik</p></div>
+                    </div>
+                    
+                    <div
+                    class="bg-neutral-300 rounded-lg shadow-xl p-2 cursor-pointer flex justify-center hover:bg-rose-700  sm:w-fit items-center ">
+                    <div class=""><img class="rotate-90 h-16 sm:rotate-0 sm:h-20 sm:min-w-[20px] sm:my-[5vh] " src="2.png" alt=""></div>
+
+
+                </div>
+                </div>
+
+    </main>
+    <footer class="bg-neutral-300">
+        <div>.</div>
     </footer>
+
 </body>
 
 </html>
