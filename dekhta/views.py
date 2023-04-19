@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.auth import login, authenticate
 from .forms import NewUserForm
 from django.contrib.auth.decorators import login_required
+from datetime import datetime
 # Create your views here.
 
 def home(request):
@@ -47,9 +48,21 @@ def read(request):
 
 @login_required
 def add_post(request):
+    if request.method == 'POST':
+        title = request.POST['title']
+        content = request.POST['data']
+        time = datetime.now()
+        poet_id = request.user.poets.id  # Assuming you have a OneToOneField relationship between User and Poet
+        poem = Post(title=title, data=content, d_time=time, poet_id_id=poet_id)
+        poem.save()
+    
+        poet = Poets.objects.get(id=poet_id)
+        poet.posts_count += 1
+        poet.save()
+        return redirect('read')  # Replace with your desired success URL
 
-
-    return render(request, 'editor.html')
+    else:
+        return render(request, 'editor.html')  # Replace with your poem creation template
 
         
 

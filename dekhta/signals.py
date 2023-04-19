@@ -8,3 +8,7 @@ def create_poet(sender, instance, created, **kwargs):
     if created:
         poet = Poets.objects.create(user=instance, first_name=instance.first_name, last_name=instance.last_name)
         poet.save()
+
+@receiver(post_save, sender=User)
+def save_profile(sender, instance, **kwargs):
+    instance.poets.save()
