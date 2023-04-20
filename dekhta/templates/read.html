@@ -10,7 +10,9 @@
             <input class="w-full shadow-2xl rounded-xl bg-white px-5 py-2 mb-10 focus:bg-amber-50  " type="text" placeholder="search kalaam">
         </form>
         <div class="grid grid-flow-row space-y-4  ">
+
             {% for p in allposts reversed%}
+            <a href="{% url 'post_detail' p.id %}">
             <div class="bg-white rounded-lg shadow-xl mt-3 p-2 cursor-pointer hover:bg-rose-100 ">
                 <h1 class="font-bold">{{p.title|upper}}</h1>
                 {% for q in poet %}
@@ -20,6 +22,7 @@
                 {% endfor %}
                 <p>{{p.data|linebreaks}} </p>
             </div>
+            </a>
             {% endfor %}
             
         </div>

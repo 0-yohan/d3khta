@@ -1,20 +1,86 @@
 {% extends 'navbar.html' %}
 
+{% load static %}
+
 {% block content %}
 <main class="bg-neutral-300 px-5 md:px-10 h-max ">
     <p class="pl-1 py-6">RECENT POSTS</p>
     <div class="grid grid-flow-row space-y-4  md:grid-flow-col md:space-x-5 ">
         {% for p in allposts %}
-        <div class="bg-white rounded-lg shadow-xl mt-4 p-2  cursor-pointer hover:bg-rose-100 ">
-            <h1 class="font-bold">{{p.title|upper}}</h1>    <!-- title -->
-            {% for q in poet %}
-                {% if p.poet_id_id is q.id %} 
-                    <h2 class="italic">{{q.first_name}} {{q.last_name}}</h2>    <!-- author -->
+
+        <div class="min-w-[40%] bg-white rounded-lg shadow-xl mt-4 p-2  cursor-pointer hover:bg-rose-100 ">
+            <a href="{% url 'post_detail' p.id %}">
+                <h1 class="font-bold">{{p.title|upper}}</h1> <!-- title -->
+                {% for q in poet %}
+                {% if p.poet_id_id is q.id %}
+                <h2 class="italic">{{q.first_name}} {{q.last_name}}</h2> <!-- author -->
                 {% endif %}
-            {% endfor %}
-            {{p.data|linebreaks|truncatewords:6}}      <!-- content -->
+                {% endfor %}
+                {{p.data|linebreaks|truncatewords:8}}
+            </a> <!-- content -->
         </div>
         {% endfor %}
+        <a href="{% url 'read' %}">
+            <div
+                class="bg-neutral-300 rounded-lg shadow-xl p-2 cursor-pointer flex justify-center hover:bg-rose-700 sm:w-fit items-center ">
+                <img class="rotate-90 h-16 sm:rotate-0 sm:h-20 sm:min-w-[25px] sm:my-[5vh] " src="{% static 'images/see_more.png' %}" alt="">
+            </div>
+        </a>
+
+
+    </div>
+    <div class="">
+        <h1 class="pl-1 py-6">POETS</h1>
+        <div class="grid grid-flow-row space-y-4  sm:grid-flow-col sm:space-x-5 ">
+            <div
+                class="bg-white rounded-lg shadow-xl mt-3 p-5 w-fit   hover:bg-rose-700 hover:font-bold hover:text-white">
+                <div class=""><img class="rounded-lg border-black max-h-52   " src="{% static 'pfps/default.jpg' %}" alt="">
+                </div>
+                <div class="pt-1">
+                    <p class="">shafey malik</p>
+                </div>
+            </div>
+            <div
+                class="bg-white rounded-lg shadow-xl mt-3 p-5 w-fit   hover:bg-rose-700 hover:font-bold hover:text-white">
+                <div class=""><img class="rounded-lg border-black max-h-52   " src="{% static 'pfps/Shafey-Malik.jpg' %}" alt="">
+                </div>
+                <div class="pt-1">
+                    <p class="">shafey malik</p>
+                </div>
+            </div>
+            <div
+                class="bg-white rounded-lg shadow-xl mt-3 p-5 w-fit   hover:bg-rose-700 hover:font-bold hover:text-white">
+                <div class=""><img class="rounded-lg border-black max-h-52   " src="{% static 'pfps/default.jpg' %}" alt="">
+                </div>
+                <div class="pt-1">
+                    <p class="">shafey malik</p>
+                </div>
+            </div>
+            <div
+                class="bg-white rounded-lg shadow-xl mt-3 p-5 w-fit   hover:bg-rose-700 hover:font-bold hover:text-white">
+                <div class=""><img class="rounded-lg border-black max-h-52   " src="{% static 'pfps/default.jpg' %}" alt="">
+                </div>
+                <div class="pt-1">
+                    <p class="">shafey malik</p>
+                </div>
+            </div>
+            <div
+                class="bg-white rounded-lg shadow-xl mt-3 p-5 w-fit   hover:bg-rose-700 hover:font-bold hover:text-white">
+                <div class=""><img class="rounded-lg border-black max-h-52   " src="{% static 'pfps/default.jpg' %}" alt="">
+                </div>
+                <div class="pt-1">
+                    <p class="">shafey malik</p>
+                </div>
+            </div>
+
+            <a href="{% url 'poets' %}">
+                <div
+                    class="bg-neutral-300 rounded-lg shadow-xl p-2 cursor-pointer flex justify-center hover:bg-rose-700  sm:w-fit items-center ">
+                    <div class=""><img class="rotate-90 h-16 sm:rotate-0 sm:h-20 sm:min-w-[20px] sm:my-[5vh] " src="{% static 'images/see_more.png' %}"
+                            alt=""></div>
+                </div>
+            </a>
+        </div>
     </div>
 </main>
 {% endblock content %}

@@ -2,15 +2,17 @@
 
 {% block content %}
 <main class="bg-neutral-300 px-5 md:px-10 h-max flex justify-center">
-    <div class="bg-white w-fit rounded-xl h-max mt-[20vh] shadow-lg">
+    <div class="bg-white w-full rounded-xl h-max mt-[20vh] shadow-lg">
         <br>
         <div class="alert alert-success" role="alert">
             <h2 style="text-align: center;">Logged out!</h2>
         </div>
-
-
-        <a href="{% url 'login' %}">Login again?</a> <br>
-        <a href="{% url 'home' %}">Or go back to home.</a>
+    <br>
+    <div class="flex justify-center">
+        <a href="{% url 'login' %}"><button class="p-2 mx-5 px-5 bg-rose-900 rounded-lg center text-white">Login Again</button></a> <br>
+    </div>
+        <br>
+        <div class="text-rose-900"  style="text-align: center;"><a href="{% url 'home' %}">Or go back to home.</a></div>
     </div>
 </main>
 

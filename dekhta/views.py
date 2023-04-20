@@ -9,12 +9,13 @@ from datetime import datetime
 # Create your views here.
 
 def home(request):
-    all_posts = Post.objects.all().order_by('-id')[:5].values()
+    all_posts = Post.objects.all().order_by('-id')[:4].values()
     poets = Poets.objects.all().values()
     return render(request, 'index.html',{'allposts':all_posts, 'poet':poets})
 
 def all_poets(request):
-    poets = Poets.objects.all().order_by('first_name').values()
+    poets = Poets.objects.all().order_by('first_name')
+    poets = poets[1:]
     return render(request, 'poets.html', {'poet': poets})
 
 def details(request, first_name, last_name):
@@ -37,7 +38,6 @@ def create_user(request):
     return render(request, 'create_user.html', {'form' : form})
     
 def contact(request):
-    
     return render(request, 'contact.html')
 
 def read(request):
@@ -45,6 +45,13 @@ def read(request):
     poets = Poets.objects.all().values()
     return render(request, 'read.html',{'allposts':all_posts, 'poet':poets})
 
+def post_detail(request, post_id):
+    post = Post.objects.get(id = post_id)
+    context = {'post': post, 'show_delete':False}
+    if request.user.is_authenticated and hasattr(request.user, 'poets') and request.user.poets.id == post.poet_id_id:
+        context['show_delete'] = True
+
+    return render(request, 'post_detail.html', context)
 
 @login_required
 def add_post(request):
@@ -52,17 +59,38 @@ def add_post(request):
         title = request.POST['title']
         content = request.POST['data']
         time = datetime.now()
-        poet_id = request.user.poets.id  # Assuming you have a OneToOneField relationship between User and Poet
+        poet_id = request.user.poets.id  
         poem = Post(title=title, data=content, d_time=time, poet_id_id=poet_id)
         poem.save()
     
         poet = Poets.objects.get(id=poet_id)
         poet.posts_count += 1
         poet.save()
-        return redirect('read')  # Replace with your desired success URL
+        return redirect('read')  
 
     else:
-        return render(request, 'editor.html')  # Replace with your poem creation template
+        return render(request, 'editor.html') 
 
+@login_required      
+def delete_post(request, post_id):
+    post = Post.objects.get(id = post_id)
+    poet = Poets.objects.get(id = post.poet_id_id)
+
+    if request.method=='POST':
+
+        if request.user.is_authenticated and request.user.id == poet.id:
+            post.delete()
+            messages.success(request, 'Post deleted')
+            poet.posts_count -= 1
+            poet.save()
+            return redirect('read')
         
+        else:
+            messages.error(request, 'You donot have permission to delete this post!')
+            return redirect('post_detail', post_id = post_id)
+    
+    else:
+        return redirect('post_detail', post_id = post_id)
+
+
 

@@ -15,6 +15,9 @@ urlpatterns = [
     path('contact_us/', views.contact, name = 'contact'),
     path('add_post/', views.add_post, name = 'add_post'),
     path('read/', views.read, name = 'read'),
+    path('post/<int:post_id>/', views.post_detail, name = 'post_detail'),
+    path('post/<int:post_id>/deletepost/', views.delete_post, name = 'delete_post'),
+
 ]
 
 # Only add this when we are in debug mode.

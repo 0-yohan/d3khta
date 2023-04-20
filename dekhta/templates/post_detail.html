@@ -1,0 +1,22 @@
+{% extends 'navbar.html' %}
+
+{% block content %} 
+<main class="bg-neutral-300 px-5 md:px-10 h-max ">
+    <div class="space-y-4 mt-10">
+       <h1 class="  p-2 pl-5 rounded-md font-bold">{{ post.title|upper }}</h1>
+       <div class="p-5">
+       <p >
+        {{ post.data|linebreaks }}</p> 
+       </div>
+       {% if show_delete %}
+            <form method="post" action="{% url 'delete_post' post.id %}">
+                {% csrf_token %}
+                <button class="p-2 mx-5 px-5 bg-rose-900 rounded-lg  text-white" type="submit" >Delete Post</button>
+            </form>
+       {% endif %}
+    </div>
+</main>
+
+
+
+{% endblock content %}
