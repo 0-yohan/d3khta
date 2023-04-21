@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Poets, Post
+from .models import Poets, Post, Queries
 from django.contrib import messages
 from django.contrib.auth import login, authenticate
 from .forms import NewUserForm
@@ -27,7 +27,7 @@ def details(request, first_name, last_name):
     return render(request, 'details.html', context)
 
 def create_user(request):
-    if request.method == 'POST':
+    if request.method == 'POST' and request.user.is_superuser:
         form = NewUserForm(request.POST)
         if form.is_valid():
             form.save()
@@ -38,7 +38,19 @@ def create_user(request):
     return render(request, 'create_user.html', {'form' : form})
     
 def contact(request):
-    return render(request, 'contact.html')
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        data = request.POST['data']
+        query = Queries(name = name, email=email, msg=data)
+        query.save()
+
+        return redirect('queries')
+
+    else:
+        return render(request, 'contact.html')
+
+ 
 
 def read(request):
     all_posts = Post.objects.all().values()
@@ -52,6 +64,11 @@ def post_detail(request, post_id):
         context['show_delete'] = True
 
     return render(request, 'post_detail.html', context)
+
+def queries(request):
+    query = Queries.objects.all().order_by('id').values()
+    return render(request, 'queries.html', {'query':query})
+
 
 @login_required
 def add_post(request):
@@ -78,7 +95,7 @@ def delete_post(request, post_id):
 
     if request.method=='POST':
 
-        if request.user.is_authenticated and request.user.id == poet.id:
+        if request.user.is_authenticated and request.user.poets.id == post.poet_id_id:
             post.delete()
             messages.success(request, 'Post deleted')
             poet.posts_count -= 1
@@ -86,7 +103,7 @@ def delete_post(request, post_id):
             return redirect('read')
         
         else:
-            messages.error(request, 'You donot have permission to delete this post!')
+            messages.error(request, 'You donot have permission to delete this post! %s %s' %(poet.id, poet2.id))
             return redirect('post_detail', post_id = post_id)
     
     else:

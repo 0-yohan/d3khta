@@ -17,6 +17,8 @@ urlpatterns = [
     path('read/', views.read, name = 'read'),
     path('post/<int:post_id>/', views.post_detail, name = 'post_detail'),
     path('post/<int:post_id>/deletepost/', views.delete_post, name = 'delete_post'),
+    path('queries', views.queries, name = 'queries'),
+    
 
 ]
 

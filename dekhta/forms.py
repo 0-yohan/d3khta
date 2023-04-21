@@ -7,7 +7,7 @@ class NewUserForm(UserCreationForm):
     first_name = forms.CharField(max_length = 25)
     last_name = forms.CharField(max_length = 25)
     email = forms.EmailField()
-
+    pfp = forms.ImageField(required=False)
     class Meta:
         model = User
-        fields = ['username', 'first_name', 'last_name', 'email','password1', 'password2']
+        fields = ['username', 'first_name', 'last_name', 'email', 'pfp', 'password1', 'password2']

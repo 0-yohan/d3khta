@@ -8,7 +8,7 @@
     <div class="grid grid-flow-row space-y-4  md:grid-flow-col md:space-x-5 ">
         {% for p in allposts %}
 
-        <div class="min-w-[40%] bg-white rounded-lg shadow-xl mt-4 p-2  cursor-pointer hover:bg-rose-100 ">
+        <div class=" w-full sm:w-[20vw] bg-white rounded-lg shadow-xl mt-4 p-2  cursor-pointer hover:bg-rose-100 ">
             <a href="{% url 'post_detail' p.id %}">
                 <h1 class="font-bold">{{p.title|upper}}</h1> <!-- title -->
                 {% for q in poet %}
@@ -75,7 +75,7 @@
 
             <a href="{% url 'poets' %}">
                 <div
-                    class="bg-neutral-300 rounded-lg shadow-xl p-2 cursor-pointer flex justify-center hover:bg-rose-700  sm:w-fit items-center ">
+                    class="bg-neutral-300 rounded-lg shadow-xl p-2 cursor-pointer flex justify-center hover:bg-rose-700 sm:w-fit items-center sm:h-[36vh]">
                     <div class=""><img class="rotate-90 h-16 sm:rotate-0 sm:h-20 sm:min-w-[20px] sm:my-[5vh] " src="{% static 'images/see_more.png' %}"
                             alt=""></div>
                 </div>

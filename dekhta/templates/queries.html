@@ -1,0 +1,17 @@
+{% block content %}
+
+    {% if query %}
+        <p>QUERIES:</p>
+    {% else %}
+        <p>Congrats! no queries</p>
+    {% endif %}
+
+    {% for q in query %}
+
+        <p>{{q.name}}---{{q.email}}</p>
+        <p>{{q.msg|linebreaks}}</p>
+
+    {% endfor %}
+
+
+{% endblock content %}

@@ -11,11 +11,11 @@ class PoetProfilePicPath:
         self.subdirectory = subdirectory
 
     def __call__(self, instance, filename):
-        # Get the first name and last name of the poet
+
         first_name = instance.first_name
         last_name = instance.last_name
 
-        # Create the file path using the first name and last name
+
         file_path = f'static/images/{self.subdirectory}/{first_name}-{last_name}.jpg'
 
         return file_path
@@ -36,3 +36,15 @@ class Post(models.Model):
     d_time = models.DateTimeField(default=datetime.now())
     data = models.TextField()
     poet_id = models.ForeignKey('Poets', on_delete=models.CASCADE, default=-1)
+
+    def __str__(self):
+        return f"{self.id}: {self.title}"
+
+
+class Queries(models.Model):
+    name = models.CharField(max_length = 40)
+    email = models.EmailField(max_length = 50)
+    msg = models.TextField(null = False)
+
+    def __str__(self):
+        return f"{self.name}: {self.email}"
