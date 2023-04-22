@@ -82,11 +82,14 @@ WSGI_APPLICATION = 'shaf.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'freedb_database_freedb_dekhta',
+        'USER': 'freedb_user_dekhta',
+        'PASSWORD': 'bv@&U8zGW5B2AQN',
+        'HOST': 'sql.freedb.tech',
+        'PORT': '3306',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
