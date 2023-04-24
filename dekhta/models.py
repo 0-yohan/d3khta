@@ -16,7 +16,7 @@ class PoetProfilePicPath:
         last_name = instance.last_name
 
 
-        file_path = f'static/images/{self.subdirectory}/{first_name}-{last_name}.jpg'
+        file_path = f'static/{self.subdirectory}/{first_name}-{last_name}.jpg'
 
         return file_path
 

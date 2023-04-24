@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-w6%30_^$f-+vgdbmwbdy0k1um&ak6axnd&=4ly5p2-bcfm+bv^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'sukhan.art', '.vercel.app']
+ALLOWED_HOSTS = ['127.0.0.1', 'sukhan.art', '*' ]
 
 
 # Application definition
@@ -54,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'shaf.urls'
@@ -126,7 +127,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = '/static/'
-# STATICFILES_DIRS = [ os.path.join(BASE_DIR,'static'), ]
+STATICFILES_DIRS = [ os.path.join(BASE_DIR,'dekhta/static'), ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # Directory where uploaded media is saved.
