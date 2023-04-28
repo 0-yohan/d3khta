@@ -1,0 +1,1 @@
+web: shaf.wsgi --log-file -
