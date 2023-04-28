@@ -1,1 +1,1 @@
-web: shaf.wsgi --log-file -
+web: gunicorn 'shaf.wsgi'
