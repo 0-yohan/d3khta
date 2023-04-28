@@ -1,1 +1,1 @@
-web: gunicorn 'shaf.wsgi'
+web: gunicorn shaf.wsgi
