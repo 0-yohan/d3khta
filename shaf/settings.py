@@ -15,6 +15,7 @@ from pathlib import Path
 from decouple import config
 
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,12 +26,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # hid secret key to upload project on github
-SECRET_KEY = config("SECRET_KEY")
+# SECRET_KEY = config("SECRET_KEY")
+SECRET_KEY = os.environ.get("SECRET KEY", "3283084vvrre")
 # SECRET_KEY = 'django-insecure-w6%30_^$f-+vgdbmwbdy0k1um&ak6axnd&=4ly5p2-bcfm+bv^'
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = 'RENDER' not in os.environ
 
-ALLOWED_HOSTS = ['127.0.0.1', 'sukhan.art', '*' ]
+ALLOWED_HOSTS = []
+
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 
 # Application definition
@@ -44,11 +50,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # 'dekhta',
     'dekhta.apps.DekhtaConfig',
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -77,19 +85,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'shaf.wsgi.application'
 
-
+CORS_ALLOWED_ORIGINS = True
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+
+## DATABASE URL
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'freedb_database_freedb_dekhta',
-        'USER': 'freedb_user_dekhta',
-        'PASSWORD': 'bv@&U8zGW5B2AQN',
-        'HOST': 'sql.freedb.tech',
-        'PORT': '3306',
-    }
+    'default': dj_database_url.config(
+        conn_max_age=600,
+        conn_health_checks=True,
+    ),
 }
 
 # Password validation
