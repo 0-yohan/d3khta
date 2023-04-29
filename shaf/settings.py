@@ -85,7 +85,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'shaf.wsgi.application'
 
-CORS_ALLOWED_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = True
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 

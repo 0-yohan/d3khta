@@ -16,7 +16,7 @@ pathspec==0.10.1
 Pillow==9.5.0
 psycopg2-binary==2.9.6
 PyMySQL==1.0.3
-pypiwin32==223
+# pypiwin32==223
 python-dateutil==2.8.2
 python-decouple==3.8
 # pywin32==306
