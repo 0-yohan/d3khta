@@ -27,16 +27,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 # hid secret key to upload project on github
 # SECRET_KEY = config("SECRET_KEY")
-SECRET_KEY = os.environ.get("SECRET KEY", "3283084vvrre")
+
+SECRET_KEY = os.environ['SECRET_KEY', 'django-insecure-w6%30_^$f-+vgdbmwbdy0k1um&ak6axnd&=4ly5p2-bcfm+bv^']
+# SECRET_KEY = os.environ.get("SECRET KEY", "3283084vvrre")
 # SECRET_KEY = 'django-insecure-w6%30_^$f-+vgdbmwbdy0k1um&ak6axnd&=4ly5p2-bcfm+bv^'
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'RENDER' not in os.environ
+DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
-RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
-if RENDER_EXTERNAL_HOSTNAME:
-    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+# RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+# if RENDER_EXTERNAL_HOSTNAME:
+#     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 
 # Application definition
@@ -92,12 +94,19 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 
 ## DATABASE URL
+# To use Neon with Django, you have to create a Project on Neon and specify the project connection settings in your settings.py in the same way as for standalone Postgres.
+
 DATABASES = {
-    'default': dj_database_url.config(
-        conn_max_age=600,
-        conn_health_checks=True,
-    ),
+  'default': {
+    'ENGINE': 'django.db.backends.postgresql',
+    'NAME': 'neondb',
+    'USER': 'carbylearns',
+    'PASSWORD': 'eOWhgvman14t',
+    'HOST': 'ep-bold-frog-193940.ap-southeast-1.aws.neon.tech',
+    'PORT': '5432',
+  }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
