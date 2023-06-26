@@ -24772,3 +24772,11 @@ Not Found: /favicon.ico
 [26/Jun/2023 13:55:05] "GET /favicon.ico HTTP/1.0" 404 4535
 Not Found: /boaform/admin/formLogin
 [26/Jun/2023 14:03:16] "POST /boaform/admin/formLogin HTTP/1.0" 404 4572
+Not Found: /boaform/admin/formLogin
+[26/Jun/2023 14:27:15] "POST /boaform/admin/formLogin HTTP/1.0" 404 4572
+Forbidden (CSRF cookie not set.): /
+[26/Jun/2023 14:27:45] "POST / HTTP/1.0" 403 2870
+Not Found: /.env
+[26/Jun/2023 14:27:45] "GET /.env HTTP/1.0" 404 4514
+Not Found: /Core/Skin/Login.aspx
+[26/Jun/2023 14:29:57] "HEAD /Core/Skin/Login.aspx HTTP/1.0" 404 4563
