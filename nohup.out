@@ -24712,3 +24712,63 @@ Not Found: /poets/IMG_20220606_171106.jpg
 [26/Jun/2023 10:00:30] "GET / HTTP/1.0" 200 8507
 Not Found: /Core/Skin/Login.aspx
 [26/Jun/2023 10:35:48] "HEAD /Core/Skin/Login.aspx HTTP/1.0" 404 4563
+Not Found: /.git/config
+[26/Jun/2023 11:02:25] "GET /.git/config HTTP/1.0" 404 4535
+Not Found: /robots.txt
+[26/Jun/2023 11:07:37] "GET /robots.txt HTTP/1.0" 404 4532
+Internal Server Error: /post/5/
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ubuntu/d3khta/dekhta/views.py", line 61, in post_detail
+    post = Post.objects.get(id = post_id)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/django/db/models/query.py", line 650, in get
+    raise self.model.DoesNotExist(
+dekhta.models.Post.DoesNotExist: Post matching query does not exist.
+[26/Jun/2023 11:07:43] "GET /post/5/ HTTP/1.0" 500 67890
+Forbidden (CSRF cookie not set.): /
+[26/Jun/2023 11:10:52] "POST / HTTP/1.0" 403 2870
+Not Found: /.env
+[26/Jun/2023 11:10:52] "GET /.env HTTP/1.0" 404 4514
+Not Found: /favicon.ico
+[26/Jun/2023 11:21:43] "GET /favicon.ico HTTP/1.0" 404 4535
+Not Found: /boaform/admin/formLogin
+[26/Jun/2023 11:33:21] "POST /boaform/admin/formLogin HTTP/1.0" 404 4572
+Not Found: /Core/Skin/Login.aspx
+[26/Jun/2023 11:53:50] "HEAD /Core/Skin/Login.aspx HTTP/1.0" 404 4563
+Forbidden (CSRF cookie not set.): /
+[26/Jun/2023 12:17:38] "POST / HTTP/1.0" 403 2870
+Not Found: /.env
+[26/Jun/2023 12:17:38] "GET /.env HTTP/1.0" 404 4514
+Not Found: /boaform/admin/formLogin
+[26/Jun/2023 12:24:47] "POST /boaform/admin/formLogin HTTP/1.0" 404 4572
+Not Found: /Core/Skin/Login.aspx
+[26/Jun/2023 13:11:46] "HEAD /Core/Skin/Login.aspx HTTP/1.0" 404 4563
+[26/Jun/2023 13:19:07] "GET /static/images/sukhan.png HTTP/1.0" 200 9607
+[26/Jun/2023 13:19:07] "GET /static/images/see_more.png HTTP/1.0" 200 14697
+[26/Jun/2023 13:19:07] "GET /static/pfps/default.jpg HTTP/1.0" 200 157361
+[26/Jun/2023 13:19:07] "GET /static/pfps/Shafey-Malik.jpg HTTP/1.0" 200 157361
+Not Found: /favicon.ico
+[26/Jun/2023 13:19:10] "GET /favicon.ico HTTP/1.0" 404 4535
+Not Found: /favicon.ico
+[26/Jun/2023 13:21:15] "GET /favicon.ico HTTP/1.0" 404 4535
+[26/Jun/2023 13:21:21] "GET / HTTP/1.0" 200 8501
+[26/Jun/2023 13:21:21] "GET /static/pfps/Allama-Iqbal.jpg HTTP/1.0" 200 9667
+[26/Jun/2023 13:21:21] "GET /static/pfps/Jaun-Elia.jpg HTTP/1.0" 200 15071
+[26/Jun/2023 13:21:21] "GET /static/pfps/Mirza-Ghalib.jpg HTTP/1.0" 200 12820
+[26/Jun/2023 13:21:22] "GET /static/pfps/Saagar-Siddiqui.jpg HTTP/1.0" 200 10735
+[26/Jun/2023 13:21:29] "GET /login/ HTTP/1.0" 200 2780
+Not Found: /boaform/admin/formLogin
+[26/Jun/2023 13:21:35] "POST /boaform/admin/formLogin HTTP/1.0" 404 4572
+Not Found: /boaform/admin/formLogin
+[26/Jun/2023 13:45:51] "POST /boaform/admin/formLogin HTTP/1.0" 404 4572
+Not Found: /favicon.ico
+[26/Jun/2023 13:47:40] "GET /favicon.ico HTTP/1.0" 404 4535
+Not Found: /favicon.ico
+[26/Jun/2023 13:55:05] "GET /favicon.ico HTTP/1.0" 404 4535
+Not Found: /boaform/admin/formLogin
+[26/Jun/2023 14:03:16] "POST /boaform/admin/formLogin HTTP/1.0" 404 4572
