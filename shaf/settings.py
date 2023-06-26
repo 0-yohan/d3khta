@@ -28,13 +28,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # hid secret key to upload project on github
 # SECRET_KEY = config("SECRET_KEY")
 
-SECRET_KEY = os.environ['SECRET_KEY', 'django-insecure-w6%30_^$f-+vgdbmwbdy0k1um&ak6axnd&=4ly5p2-bcfm+bv^']
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-w6%30_^$f-+vgdbmwbdy0k1um&ak6axnd&=4ly5p2-bcfm+bv^')
 # SECRET_KEY = os.environ.get("SECRET KEY", "3283084vvrre")
 # SECRET_KEY = 'django-insecure-w6%30_^$f-+vgdbmwbdy0k1um&ak6axnd&=4ly5p2-bcfm+bv^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['www.sukhan.art', 'sukhan.art', '15.207.181.204']
 
 # RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 # if RENDER_EXTERNAL_HOSTNAME:

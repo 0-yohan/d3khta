@@ -16,7 +16,7 @@
                 <h2 class="italic">{{q.first_name}} {{q.last_name}}</h2> <!-- author -->
                 {% endif %}
                 {% endfor %}
-                {{p.data|linebreaks|truncatewords:8}}
+                {{ p.data|linebreaks|truncatewords_html:16 }}
             </a> <!-- content -->
         </div>
         {% endfor %}
@@ -32,46 +32,56 @@
     <div class="">
         <h1 class="pl-1 py-6">POETS</h1>
         <div class="grid grid-flow-row space-y-4  sm:grid-flow-col sm:space-x-5 ">
+            <a href="/poets/Allama-Iqbal"^>
+	    <div
+                class="bg-white rounded-lg shadow-xl mt-3 p-5 w-fit   hover:bg-rose-700 hover:font-bold hover:text-white">
+                <div class=""><img class="rounded-lg border-black max-h-52   " src="{% static 'pfps/Allama-Iqbal.jpg' %}" alt="">
+                </div>
+                <div class="pt-1">
+                    <p class="">Allama Iqqbal</p>
+                </div>
+            </div>
+	   </a>
+           <a href="/poets/Jaun-Elia"^>
+            <div
+                class="bg-white rounded-lg shadow-xl mt-3 p-5 w-fit   hover:bg-rose-700 hover:font-bold hover:text-white">
+                <div class=""><img class="rounded-lg border-black max-h-52   " src="{% static 'pfps/Jaun-Elia.jpg' %}" alt="">
+                </div>
+                <div class="pt-1">
+                    <p class="">Jaun Elia</p>
+                </div>
+            </div>
+	    </a>
+	    <a href="/poets/Mirza-Ghalib"^>
+            <div
+                class="bg-white rounded-lg shadow-xl mt-3 p-5 w-fit   hover:bg-rose-700 hover:font-bold hover:text-white">
+                <div class=""><img class="rounded-lg border-black max-h-52   " src="{% static 'pfps/Mirza-Ghalib.jpg' %}" alt="">
+                </div>
+                <div class="pt-1">
+                    <p class="">Mirza Ghalib</p>
+                </div>
+            </div>
+	    </a>
+	    <a href="/poets/Saagar-Siddiqui">
+            <div
+                class="bg-white rounded-lg shadow-xl mt-3 p-5 w-fit   hover:bg-rose-700 hover:font-bold hover:text-white">
+                <div class=""><img class="rounded-lg border-black max-h-52   " src="{% static 'pfps/Saagar-Siddiqui.jpg' %}" alt="">
+                </div>
+                <div class="pt-1">
+                    <p class="">Saagar Siddiqui</p>
+                </div>
+            </div>
+	    </a>
+	    <a href="/poets/Shafey-Malik"^>
             <div
                 class="bg-white rounded-lg shadow-xl mt-3 p-5 w-fit   hover:bg-rose-700 hover:font-bold hover:text-white">
                 <div class=""><img class="rounded-lg border-black max-h-52   " src="{% static 'pfps/default.jpg' %}" alt="">
                 </div>
                 <div class="pt-1">
-                    <p class="">shafey malik</p>
+                    <p class="">shafey Malik</p>
                 </div>
             </div>
-            <div
-                class="bg-white rounded-lg shadow-xl mt-3 p-5 w-fit   hover:bg-rose-700 hover:font-bold hover:text-white">
-                <div class=""><img class="rounded-lg border-black max-h-52   " src="{% static 'pfps/Shafey-Malik.jpg' %}" alt="">
-                </div>
-                <div class="pt-1">
-                    <p class="">shafey malik</p>
-                </div>
-            </div>
-            <div
-                class="bg-white rounded-lg shadow-xl mt-3 p-5 w-fit   hover:bg-rose-700 hover:font-bold hover:text-white">
-                <div class=""><img class="rounded-lg border-black max-h-52   " src="{% static 'pfps/default.jpg' %}" alt="">
-                </div>
-                <div class="pt-1">
-                    <p class="">shafey malik</p>
-                </div>
-            </div>
-            <div
-                class="bg-white rounded-lg shadow-xl mt-3 p-5 w-fit   hover:bg-rose-700 hover:font-bold hover:text-white">
-                <div class=""><img class="rounded-lg border-black max-h-52   " src="{% static 'pfps/default.jpg' %}" alt="">
-                </div>
-                <div class="pt-1">
-                    <p class="">shafey malik</p>
-                </div>
-            </div>
-            <div
-                class="bg-white rounded-lg shadow-xl mt-3 p-5 w-fit   hover:bg-rose-700 hover:font-bold hover:text-white">
-                <div class=""><img class="rounded-lg border-black max-h-52   " src="{% static 'pfps/default.jpg' %}" alt="">
-                </div>
-                <div class="pt-1">
-                    <p class="">shafey malik</p>
-                </div>
-            </div>
+	    </a>
 
             <a href="{% url 'poets' %}">
                 <div
@@ -84,3 +94,4 @@
     </div>
 </main>
 {% endblock content %}
+

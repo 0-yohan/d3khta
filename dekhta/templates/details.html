@@ -31,7 +31,7 @@
             <a href="{% url 'post_detail' p.id %}">
                 <div class="bg-white rounded-lg shadow-xl mt-3 p-2 cursor-pointer hover:bg-rose-100 ">
                 <h1 class="font-bold">{{p.title|upper}}</h1>
-                <p>{{p.data|linebreaks}}</p>
+                <p>{{p.data|linebreaksbr}}</p>
                 </div>
             </a>
             {% endif %}
