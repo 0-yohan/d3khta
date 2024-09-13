@@ -34,7 +34,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-w6%30_^$f-+vgdbmwbdy0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['www.sukhan.art', 'sukhan.art', '15.207.181.204']
+ALLOWED_HOSTS = ['www.sukhan.art', 'sukhan.art', '15.207.181.204', 'sukhan.vercel.app', 'localhost', '127.0.0.1']
 
 # RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 # if RENDER_EXTERNAL_HOSTNAME:
