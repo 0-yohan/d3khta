@@ -1,12 +1,14 @@
 {
-  "build": {
-    "env": {
-      "DJANGO_SETTINGS_MODULE": "your_project.settings.production"
-    },
-    "cmd": "pip install -r requirements.txt && python manage.py collectstatic --noinput",
-     },
+  "builds": [
+    {
+      "src": "shaf/wsgi.py",
+      "use": "@vercel/python"
+    }
+  ],
   "routes": [
-    { "src": "/static/(.*)", "dest": "/static/$1" },
-    { "src": "/(.*)", "dest": "index.html" }
+    {
+      "src": "/(.*)",
+      "dest": "shaf/wsgi.py"
+    }
   ]
 }
